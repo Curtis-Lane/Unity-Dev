@@ -8,6 +8,6 @@ public class Disco : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		discoLight.color = Random.ColorHSV();
+		discoLight.color = Random.ColorHSV(0, 1, 1, 1, 1, 1, 1, 1);
 	}
 }
