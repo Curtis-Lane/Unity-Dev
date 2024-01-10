@@ -7,15 +7,8 @@ public class Rotator : MonoBehaviour {
 	[Range(-360, 360)]
 	float angle;
 
-	[SerializeField]
-	[Range(0, 5)]
-	float speed = 5.0f;
-
 	// Update is called once per frame
 	void Update() {
 		transform.rotation *= Quaternion.AngleAxis(angle * Time.deltaTime, Vector3.up);
-		if(Input.GetKey(KeyCode.LeftShift)) {
-			transform.position += transform.forward * speed * Time.deltaTime;
-		}
 	}
 }
