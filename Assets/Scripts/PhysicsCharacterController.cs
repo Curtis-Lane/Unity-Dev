@@ -31,7 +31,6 @@ public class PhysicsCharacterControllre : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
-		Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
     }
 
