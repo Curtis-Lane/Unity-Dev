@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PhysicsCharacterControllre : MonoBehaviour {
+public class PhysicsCharacterController : MonoBehaviour {
 	[Header("Movement")]
 
 	[SerializeField]
@@ -57,4 +57,9 @@ public class PhysicsCharacterControllre : MonoBehaviour {
 	private bool OnGround() {
 		return Physics.Raycast(transform.position, Vector3.down, rayLength, groundLayerMask);
 	}
+
+    public void Reset() {
+        rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
+    }
 }
