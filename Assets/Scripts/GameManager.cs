@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
 	[SerializeField]
 	GameObject titleUI;
 
 	[SerializeField]
+	GameObject gameUI;
+
+	[SerializeField]
 	TMP_Text livesUI;
 
-    [SerializeField]
-    TMP_Text timerUI;
+	[SerializeField]
+	TMP_Text timerUI;
 
 	[SerializeField]
 	Slider healthUI;
@@ -21,7 +26,13 @@ public class GameManager : Singleton<GameManager> {
 	FloatVariable health;
 
 	[SerializeField]
+	IntVariable score;
+
+	[SerializeField]
 	GameObject respawn;
+
+	[SerializeField]
+	string nextLevel;
 
 	[Header("Events")]
 
@@ -34,10 +45,17 @@ public class GameManager : Singleton<GameManager> {
 	[SerializeField]
 	GameObjectEvent respawnEvent;
 
-    public enum State {
+	[Header("Game Variables")]
+
+	[SerializeField]
+	int scoreToReach = -1;
+
+	public enum State {
 		TITLE,
 		START_GAME,
 		PLAY_GAME,
+		PLAYER_DEAD,
+		GAME_WON,
 		GAME_OVER
 	}
 
@@ -45,7 +63,7 @@ public class GameManager : Singleton<GameManager> {
 	public float timer = 0.0f;
 	public int lives = 0;
 
-	public int Lives {get {return lives;} set{lives = value; livesUI.text = "LIVES: " + lives.ToString();}}
+	public int Lives {get {return lives;} set{lives = value; livesUI.text = "Lives: " + lives.ToString();}}
 	public float Timer {get {return timer;} set{timer = value; timerUI.text = string.Format("{0:F1}", timer);}}
 
 	private void OnEnable() {
@@ -66,13 +84,18 @@ public class GameManager : Singleton<GameManager> {
 		switch(state) {
 			case State.TITLE:
 				titleUI.SetActive(true);
+				gameUI.SetActive(false);
+
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
 				break;
 			case State.START_GAME:
 				titleUI.SetActive(false);
+				gameUI.SetActive(true);
+
 				Cursor.lockState = CursorLockMode.Locked;
 				Cursor.visible = false;
+
 				Timer = 60.0f;
 				Lives = 3;
 				health.value = 100.0f;
@@ -86,7 +109,27 @@ public class GameManager : Singleton<GameManager> {
 				Timer -= Time.deltaTime;
 				if(Timer <= 0.0f) {
 					state = State.GAME_OVER;
+					break;
 				}
+
+				if(score.value == scoreToReach) {
+					state = State.GAME_WON;
+				}
+
+				break;
+			case State.PLAYER_DEAD:
+				Lives -= 1;
+				health.value = 100.0f;
+
+				respawnEvent.RaiseEvent(respawn);
+
+				if(Lives != 0) {
+					state = State.PLAY_GAME;
+				} else {
+					state = State.GAME_OVER;
+				}
+				break;
+			case State.GAME_WON:
 				break;
 			case State.GAME_OVER:
 				break;
@@ -100,7 +143,7 @@ public class GameManager : Singleton<GameManager> {
 	}
 
 	public void OnPlayerDead() {
-		state = State.TITLE;
+		state = State.PLAYER_DEAD;
 	}
 
 	public void OnAddPoints(int points) {

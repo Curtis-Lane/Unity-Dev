@@ -26,12 +26,14 @@ public class PhysicsCharacterController : MonoBehaviour {
 	[SerializeField]
 	LayerMask groundLayerMask;
 
+	[SerializeField]
     Rigidbody rb;
+
 	Vector3 force = Vector3.zero;
 
 	// Start is called before the first frame update
 	void Start() {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
     }
 
 	// Update is called once per frame

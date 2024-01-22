@@ -1544,7 +1544,9 @@ MonoBehaviour:
   timerUI: {fileID: 966090995}
   healthUI: {fileID: 301936296}
   health: {fileID: 11400000, guid: 0071dd66fefac374da6bd74a6535d29c, type: 2}
+  respawn: {fileID: 639559492}
   gameStartEvent: {fileID: 11400000, guid: dd60b2ad4a96b3a47945a441bc33e122, type: 2}
+  respawnEvent: {fileID: 11400000, guid: 432095d43724eeb41aa491f57d3931ff, type: 2}
   state: 0
   timer: 0
   lives: 0
@@ -2419,6 +2421,7 @@ GameObject:
   - component: {fileID: 1727069006}
   - component: {fileID: 1727069007}
   - component: {fileID: 1727069008}
+  - component: {fileID: 1727069009}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2576,6 +2579,34 @@ MonoBehaviour:
   scoreEvent: {fileID: 11400000, guid: b81ff5c125d40fa4fb87e13017464fc9, type: 2}
   gameStartEvent: {fileID: 11400000, guid: dd60b2ad4a96b3a47945a441bc33e122, type: 2}
   playerDeadEvent: {fileID: 11400000, guid: c6b327c5ec04396439ab52d03e8acddb, type: 2}
+--- !u!114 &1727069009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727069001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ffd68b8d9713f5498ee1ac9b2d81dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 432095d43724eeb41aa491f57d3931ff, type: 2}
+  listener:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1727069008}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnRespawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1741300222
 GameObject:
   m_ObjectHideFlags: 0

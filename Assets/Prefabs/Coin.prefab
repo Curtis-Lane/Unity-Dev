@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupPrefab: {fileID: 1804206099813350, guid: 4dd02b5f854b6c84990fbeb810abffe4, type: 3}
+  pointValue: 10
 --- !u!114 &7076789220669471409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 1
-  amplitude: 1
+  amplitude: 0.25
 --- !u!33 &2395219262387720305
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Variables/Int")]
-public class IntVariable : ScriptableObject, ISerializationCallbackReceiver {
-	public int initialValue;
+public class IntVariable : VariableBase<int> {
+	//public int initialValue;
 
-	[NonSerialized]
-	public int value;
+	//[NonSerialized]
+	//public int value;
 
-	public void OnAfterDeserialize() {
-		value = initialValue;
-	}
+	//public void OnAfterDeserialize() {
+	//	value = initialValue;
+	//}
 
-	public void OnBeforeSerialize() {
-		//
-	}
+	//public void OnBeforeSerialize() {
+	//	//
+	//}
 }

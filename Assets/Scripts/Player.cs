@@ -9,6 +9,20 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	FloatVariable health;
 	[SerializeField]
+	IntVariable score;
+
+    public int Score {
+        get {
+            return score.value;
+        }
+        set {
+            score.value = value;
+            scoreText.text = "Score: " + score.value.ToString();
+            scoreEvent.RaiseEvent(score.value);
+        }
+    }
+
+    [SerializeField]
 	PhysicsCharacterController characterController;
 
 	[Header("Events")]
@@ -19,20 +33,8 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	VoidEvent gameStartEvent = default;
 
-    [SerializeField]
-    VoidEvent playerDeadEvent = default;
-
-    private int score = 0;
-
-	public int Score {
-		get {
-			return score;
-		} set {
-			score = value;
-			scoreText.text = score.ToString();
-			scoreEvent.RaiseEvent(score);
-		}
-	}
+	[SerializeField]
+	VoidEvent playerDeadEvent = default;
 
 	private void OnEnable() {
 		gameStartEvent.Subscribe(OnStartGame);

@@ -6,16 +6,20 @@ public class Pickup : MonoBehaviour {
 	[SerializeField]
 	GameObject pickupPrefab = null;
 
+	[SerializeField]
+	[Range(1, 25)]
+	int pointValue = 10;
+
 	private void OnCollisionEnter(Collision collision) {
 		print(collision.gameObject.name);
 	}
 
 	private void OnTriggerEnter(Collider other) {
 		if(other.gameObject.TryGetComponent(out Player player)) {
-			player.AddPoints(10);
+			player.AddPoints(pointValue);
 		}
 
 		Instantiate(pickupPrefab, transform.position, Quaternion.identity);
-		Destroy(gameObject);
+		Destroy(this.gameObject);
 	}
 }
