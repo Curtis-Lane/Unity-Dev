@@ -29,10 +29,8 @@ public class GameManager : Singleton<GameManager> {
 	IntVariable score;
 
 	[SerializeField]
-	GameObject respawn;
-
-	[SerializeField]
-	string nextLevel;
+	GameObject[] levelRespawnPoints;
+	int levelIndex = 0;
 
 	[Header("Events")]
 
@@ -48,7 +46,7 @@ public class GameManager : Singleton<GameManager> {
 	[Header("Game Variables")]
 
 	[SerializeField]
-	int scoreToReach = -1;
+	int[] scoreToReach = {70, 40};
 
 	public enum State {
 		TITLE,
@@ -99,9 +97,10 @@ public class GameManager : Singleton<GameManager> {
 				Timer = 60.0f;
 				Lives = 3;
 				health.value = 100.0f;
+				score.value = 0;
 
 				gameStartEvent.RaiseEvent();
-				respawnEvent.RaiseEvent(respawn);
+				respawnEvent.RaiseEvent(levelRespawnPoints[levelIndex]);
 
 				state = State.PLAY_GAME;
 				break;
@@ -112,7 +111,7 @@ public class GameManager : Singleton<GameManager> {
 					break;
 				}
 
-				if(score.value == scoreToReach) {
+				if(score.value == scoreToReach[levelIndex]) {
 					state = State.GAME_WON;
 				}
 
@@ -121,7 +120,7 @@ public class GameManager : Singleton<GameManager> {
 				Lives -= 1;
 				health.value = 100.0f;
 
-				respawnEvent.RaiseEvent(respawn);
+				respawnEvent.RaiseEvent(levelRespawnPoints[levelIndex]);
 
 				if(Lives != 0) {
 					state = State.PLAY_GAME;
@@ -130,6 +129,9 @@ public class GameManager : Singleton<GameManager> {
 				}
 				break;
 			case State.GAME_WON:
+				state = State.TITLE;
+
+				NextLevel();
 				break;
 			case State.GAME_OVER:
 				break;
@@ -149,4 +151,12 @@ public class GameManager : Singleton<GameManager> {
 	public void OnAddPoints(int points) {
 		print(points);
 	}
+
+	private void NextLevel() {
+		if(levelIndex + 1 != levelRespawnPoints.Length) {
+			levelIndex += 1;
+		}
+
+		//
+    }
 }
