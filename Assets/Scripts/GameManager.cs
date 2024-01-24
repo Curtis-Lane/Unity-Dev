@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,13 +14,19 @@ public class GameManager : Singleton<GameManager> {
 	[SerializeField]
 	GameObject gameUI;
 
-	[SerializeField]
+    [SerializeField]
+    GameObject winLoseUI;
+
+    [SerializeField]
 	TMP_Text livesUI;
 
 	[SerializeField]
 	TMP_Text timerUI;
 
-	[SerializeField]
+    [SerializeField]
+    TMP_Text winLoseText;
+
+    [SerializeField]
 	Slider healthUI;
 
 	[SerializeField]
@@ -32,6 +39,9 @@ public class GameManager : Singleton<GameManager> {
 	GameObject[] levelRespawnPoints;
 	int levelIndex = 0;
 
+	[SerializeField]
+	int startLevelIndex = 0;
+
 	[Header("Events")]
 
 	//[SerializeField]
@@ -40,7 +50,10 @@ public class GameManager : Singleton<GameManager> {
 	[SerializeField]
 	VoidEvent gameStartEvent;
 
-	[SerializeField]
+    [SerializeField]
+    VoidEvent gameEndEvent;
+
+    [SerializeField]
 	GameObjectEvent respawnEvent;
 
 	[Header("Game Variables")]
@@ -62,7 +75,9 @@ public class GameManager : Singleton<GameManager> {
 	public int lives = 0;
 
 	public int Lives {get {return lives;} set{lives = value; livesUI.text = "Lives: " + lives.ToString();}}
-	public float Timer {get {return timer;} set{timer = value; timerUI.text = string.Format("{0:F1}", timer);}}
+	public float Timer {get {return timer;} set{timer = value; timerUI.text = string.Format("{0:F1}", Math.Max(0, timer));}}
+
+	private float winLoseTimer = 0.0f;
 
 	private void OnEnable() {
 		//scoreEvent.Subscribe(OnAddPoints);
@@ -75,6 +90,7 @@ public class GameManager : Singleton<GameManager> {
 	// Start is called before the first frame update
 	void Start() {
 		//scoreEvent.Subscribe(OnAddPoints);
+		levelIndex = startLevelIndex;
 	}
 
 	// Update is called once per frame
@@ -83,6 +99,7 @@ public class GameManager : Singleton<GameManager> {
 			case State.TITLE:
 				titleUI.SetActive(true);
 				gameUI.SetActive(false);
+				winLoseUI.SetActive(false);
 
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
@@ -90,11 +107,13 @@ public class GameManager : Singleton<GameManager> {
 			case State.START_GAME:
 				titleUI.SetActive(false);
 				gameUI.SetActive(true);
+				winLoseUI.SetActive(false);
 
 				Cursor.lockState = CursorLockMode.Locked;
 				Cursor.visible = false;
 
 				Timer = 60.0f;
+				winLoseTimer = 5.0f;
 				Lives = 3;
 				health.value = 100.0f;
 				score.value = 0;
@@ -107,7 +126,7 @@ public class GameManager : Singleton<GameManager> {
 			case State.PLAY_GAME:
 				Timer -= Time.deltaTime;
 				if(Timer <= 0.0f) {
-					state = State.GAME_OVER;
+					state = State.PLAYER_DEAD;
 					break;
 				}
 
@@ -129,12 +148,35 @@ public class GameManager : Singleton<GameManager> {
 				}
 				break;
 			case State.GAME_WON:
-				state = State.TITLE;
+                winLoseUI.SetActive(true);
 
-				NextLevel();
+				winLoseText.text = "You collected all the coins!";
+
+				gameEndEvent.RaiseEvent();
+
+				winLoseTimer -= Time.deltaTime;
+				if(winLoseTimer <= 0.0f) {
+					state = State.START_GAME;
+
+					NextLevel();
+				}
+
 				break;
 			case State.GAME_OVER:
-				break;
+                winLoseUI.SetActive(true);
+
+				winLoseText.text = (Timer <= 0.0f) ? "You ran out of time!" : "You ran out of lives!";
+
+				gameEndEvent.RaiseEvent();
+
+				winLoseTimer -= Time.deltaTime;
+				if(winLoseTimer <= 0.0f) {
+					state = State.TITLE;
+
+					RestartGame();
+				}
+
+                break;
 		}
 
 		healthUI.value = health.value / 100.0f;
@@ -159,4 +201,8 @@ public class GameManager : Singleton<GameManager> {
 
 		//
     }
+
+	private void RestartGame() {
+		levelIndex = 0;
+	}
 }

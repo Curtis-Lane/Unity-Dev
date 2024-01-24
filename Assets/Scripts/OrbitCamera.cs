@@ -38,7 +38,17 @@ public class OrbitCamera : MonoBehaviour {
 		Quaternion qPitch = Quaternion.AngleAxis(pitch, Vector3.right);
 		Quaternion rotation = qYaw * qPitch;
 
-		transform.position = target.position + (rotation * Vector3.back * distance);
+		float checkedDistance = distance;
+
+		if(Physics.Raycast(target.position, (this.transform.position - target.position), out RaycastHit raycastHit, distance)) {
+			if(raycastHit.collider.gameObject.TryGetComponent(out MeshRenderer renderer)) {
+				if(renderer.isVisible) {
+					checkedDistance = Math.Clamp(raycastHit.distance - 0.25f, 1f, distance);
+				}
+			}
+		}
+
+		transform.position = target.position + (rotation * Vector3.back * checkedDistance);
 		transform.rotation = rotation;
 	}
 }

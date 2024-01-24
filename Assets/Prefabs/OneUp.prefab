@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6782156151244049318}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.25, y: 1.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupPrefab: {fileID: 1755820820360830, guid: 3051c727a9e218f4eaff572b5d1e8771, type: 3}
-  gameManager: {fileID: 0}
   lifeValue: 1
 --- !u!114 &7076789220669471409
 MonoBehaviour:
@@ -86,7 +85,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6782156151244049318}
-  m_Mesh: {fileID: 4300000, guid: 20a363539fe980347a78e6566e3164a8, type: 3}
+  m_Mesh: {fileID: 4300000, guid: f87011635db23f245aa89606d96fccd6, type: 3}
 --- !u!23 &5302210950715071828
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -57,7 +57,12 @@ public class Player : MonoBehaviour {
 		characterController.enabled = true;
 	}
 
-	public void Damage(float damage) {
+    public void OnEndGame() {
+        characterController.enabled = false;
+		characterController.Reset();
+    }
+
+    public void Damage(float damage) {
 		health.value -= damage;
 		if(health.value <= 0) {
 			playerDeadEvent.RaiseEvent();
