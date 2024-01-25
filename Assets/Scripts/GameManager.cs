@@ -106,6 +106,15 @@ public class GameManager : Singleton<GameManager> {
 
 	// Update is called once per frame
 	void Update() {
+		if(Input.GetButton("Cancel")) {
+			if(!Application.isEditor) {
+				Application.Quit();
+				return;
+			} else {
+				print("Quit!");
+			}
+		}
+
 		switch(state) {
 			case State.TITLE:
 				titleUI.SetActive(true);
