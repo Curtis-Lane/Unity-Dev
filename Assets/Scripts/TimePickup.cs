@@ -7,12 +7,11 @@ public class TimePickup : MonoBehaviour {
 	GameObject pickupPrefab = null;
 
 	[SerializeField]
+	AudioClip pickupAudio;
+
+	[SerializeField]
 	[Range(1, 60)]
 	float timeValue = 25.0f;
-
-	private void OnCollisionEnter(Collision collision) {
-		print(collision.gameObject.name);
-	}
 
 	private void OnTriggerEnter(Collider other) {
 		if(other.gameObject.TryGetComponent(out Player player)) {
@@ -22,5 +21,6 @@ public class TimePickup : MonoBehaviour {
 
 		Instantiate(pickupPrefab, transform.position, Quaternion.identity).AddComponent<SelfDestruct>().lifeTime = 10.0f;
 		Destroy(this.gameObject);
+		AudioSource.PlayClipAtPoint(pickupAudio, this.transform.position);
 	}
 }

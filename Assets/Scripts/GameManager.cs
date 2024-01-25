@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor;
-using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
 	[SerializeField]
@@ -41,6 +39,18 @@ public class GameManager : Singleton<GameManager> {
 
 	[SerializeField]
 	int startLevelIndex = 0;
+
+	[SerializeField]
+	AudioSource audioPlayer;
+
+	[SerializeField]
+	AudioSource bgmPlayer;
+
+	[SerializeField]
+	AudioClip winSoundFX;
+
+	[SerializeField]
+	AudioClip loseSoundFX;
 
 	[Header("Events")]
 
@@ -91,6 +101,7 @@ public class GameManager : Singleton<GameManager> {
 	void Start() {
 		//scoreEvent.Subscribe(OnAddPoints);
 		levelIndex = startLevelIndex;
+		Lives = 3;
 	}
 
 	// Update is called once per frame
@@ -114,9 +125,11 @@ public class GameManager : Singleton<GameManager> {
 
 				Timer = 60.0f;
 				winLoseTimer = 5.0f;
-				Lives = 3;
+				//Lives = 3;
 				health.value = 100.0f;
 				score.value = 0;
+
+				audioPlayer.clip = null;
 
 				gameStartEvent.RaiseEvent();
 				respawnEvent.RaiseEvent(levelRespawnPoints[levelIndex]);
@@ -143,6 +156,7 @@ public class GameManager : Singleton<GameManager> {
 
 				if(Lives != 0) {
 					state = State.PLAY_GAME;
+					if(Timer <= 0) Timer = 60.0f;
 				} else {
 					state = State.GAME_OVER;
 				}
@@ -153,6 +167,11 @@ public class GameManager : Singleton<GameManager> {
 				winLoseText.text = "You collected all the coins!";
 
 				gameEndEvent.RaiseEvent();
+
+				if(audioPlayer.clip == null) {
+					audioPlayer.clip = winSoundFX;
+					audioPlayer.Play();
+				}
 
 				winLoseTimer -= Time.deltaTime;
 				if(winLoseTimer <= 0.0f) {
@@ -168,6 +187,12 @@ public class GameManager : Singleton<GameManager> {
 				winLoseText.text = (Timer <= 0.0f) ? "You ran out of time!" : "You ran out of lives!";
 
 				gameEndEvent.RaiseEvent();
+
+				if(audioPlayer.clip == null) {
+					audioPlayer.clip = loseSoundFX;
+					audioPlayer.Play();
+					bgmPlayer.Stop();
+				}
 
 				winLoseTimer -= Time.deltaTime;
 				if(winLoseTimer <= 0.0f) {

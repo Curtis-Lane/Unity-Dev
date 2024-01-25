@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupPrefab: {fileID: 1804206099813350, guid: 4dd02b5f854b6c84990fbeb810abffe4, type: 3}
+  pickupAudio: {fileID: 8300000, guid: ef8558be3bd94224eb68e7173f9bb830, type: 3}
   pointValue: 10
 --- !u!114 &7076789220669471409
 MonoBehaviour:
