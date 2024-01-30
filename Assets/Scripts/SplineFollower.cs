@@ -12,6 +12,7 @@ public class SplineFollower : MonoBehaviour {
 	public float speed = 1.0f;
 
 	[SerializeField]
+	[Range(0.0f, 1.0f)]
 	float tDistance = 0.0f; // Distance along spline (0-1)
 
 	//public float speed {get; set;}
@@ -23,6 +24,7 @@ public class SplineFollower : MonoBehaviour {
 			return tDistance * length;
 		} set {
 			tDistance = value / length;
+			tDistance = Utilities.Wrap(tDistance, 0.0f, 1.0f);
 		}
 	}
 
