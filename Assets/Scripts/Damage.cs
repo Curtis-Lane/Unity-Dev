@@ -10,14 +10,18 @@ public class Damage : MonoBehaviour {
 	bool oneTime = true;
 
 	private void OnTriggerStay(Collider other) {
-		if(!oneTime && other.gameObject.TryGetComponent<Player>(out Player player)) {
-			player.Damage(damage * Time.deltaTime);
+		if(!oneTime && other.gameObject.TryGetComponent(out IDamageable damageable)) {
+			damageable.ApplyDamage(damage * Time.deltaTime);
 		}
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		if(oneTime && other.gameObject.TryGetComponent<Player>(out Player player)) {
-			player.Damage(damage);
+		if(oneTime && other.gameObject.TryGetComponent(out IDamageable damageable)) {
+			damageable.ApplyDamage(damage);
 		}
 	}
+}
+
+public interface IDamageable {
+	void ApplyDamage(float damage);
 }

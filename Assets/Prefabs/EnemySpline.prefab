@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6220816755273778035}
   - component: {fileID: 3214838295575235464}
   - component: {fileID: 3800996071548414253}
+  - component: {fileID: 3314508084288573595}
   m_Layer: 0
   m_Name: EnemySpline
   m_TagString: Untagged
@@ -653,6 +654,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03059fe8f9c22b040b156e7da3df263b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3314508084288573595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8309552277334073107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8cc9371c1c0be4dbfbca51120c66f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 6.5
 --- !u!1 &9066372398902845252
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splineContainer: {fileID: 3214838295575235464}
-  speed: 1
+  speed: 40
   tDistance: 0
 --- !u!1001 &2525114088716958858
 PrefabInstance:
