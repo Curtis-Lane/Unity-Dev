@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 //using UnityEngine.Animations.Rigging;
 
-public class Weapon : Item {
+public class MultiFireWeapon : Item {
 	[SerializeField] WeaponData weaponData;
 	[SerializeField] Animator animator;
 	//[SerializeField] RigBuilder rigBuilder;
-	[SerializeField] Transform ammoTransform;
+	[SerializeField] Transform[] ammoTransforms;
 
+	private int ammoTransformIndex = 0;
 	private int ammoCount = 0;
 	private bool weaponReady = false;
 
@@ -16,8 +17,8 @@ public class Weapon : Item {
 
 	private void Start() {
 		autoFireCoroutine = AutoFire();
-		if(ammoTransform == null) {
-			ammoTransform = transform;
+		if(ammoTransforms == null || ammoTransforms.Length == 0) {
+			ammoTransforms[0] = transform;
 		}
 	}
 
@@ -53,7 +54,8 @@ public class Weapon : Item {
 		} else {
 			// create ammo prefab
 			if(weaponData.usageType == UsageType.SINGLE || weaponData.usageType == UsageType.BURST) {
-				Instantiate(weaponData.ammoPrefab, ammoTransform.position, ammoTransform.rotation);
+				Instantiate(weaponData.ammoPrefab, ammoTransforms[ammoTransformIndex].position, ammoTransforms[ammoTransformIndex].rotation);
+				ammoTransformIndex = (ammoTransformIndex + 1) % ammoTransforms.Length;
 				if(weaponData.fireRate > 0) {
 					weaponReady = false;
 					StartCoroutine(ResetFireTimer());
@@ -79,7 +81,8 @@ public class Weapon : Item {
 
 	public override void OnAnimEventItemUse() {
 		// create ammo prefab
-		Instantiate(weaponData.ammoPrefab, ammoTransform.position, ammoTransform.rotation);
+		Instantiate(weaponData.ammoPrefab, ammoTransforms[ammoTransformIndex].position, ammoTransforms[ammoTransformIndex].rotation);
+		ammoTransformIndex = (ammoTransformIndex + 1) % ammoTransforms.Length;
 	}
 
 	IEnumerator ResetFireTimer() {
@@ -89,7 +92,8 @@ public class Weapon : Item {
 
 	IEnumerator AutoFire() {
 		while(true) {
-			Instantiate(weaponData.ammoPrefab, ammoTransform.position, ammoTransform.rotation);
+			Instantiate(weaponData.ammoPrefab, ammoTransforms[ammoTransformIndex].position, ammoTransforms[ammoTransformIndex].rotation);
+			ammoTransformIndex = (ammoTransformIndex + 1) % ammoTransforms.Length;
 			yield return new WaitForSeconds(weaponData.fireRate);
 		}
 	}

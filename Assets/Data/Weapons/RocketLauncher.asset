@@ -23,7 +23,7 @@ MonoBehaviour:
   rigLayerWeight: []
   itemPrefab: {fileID: 0}
   pickupPrefab: {fileID: 0}
-  fireRate: 0
+  fireRate: 0.1
   spread: {x: 0.1, y: 0.1, z: 0.1}
   rounds: 0
-  ammoPrefab: {fileID: 0}
+  ammoPrefab: {fileID: 2418939336879953409, guid: 074bbd4191c635c479a7748ae2b048fa, type: 3}
