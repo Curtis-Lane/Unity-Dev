@@ -11,6 +11,7 @@ public enum AmmoType {
 public class AmmoData : ScriptableObject {
 	public AmmoType ammoType;
 	public float lifetime;
+	public float impactLifetime;
 	public float damage;
 	public bool destroyOnImpact;
 	public GameObject impactPrefab;

@@ -13,7 +13,8 @@ public abstract class Ammo : MonoBehaviour {
 
 		// create impact prefab
 		if(ammoData.impactPrefab != null) {
-			Instantiate(ammoData.impactPrefab, transform.position, transform.rotation);
+			var go = Instantiate(ammoData.impactPrefab, transform.position, transform.rotation);
+			Destroy(go, ammoData.impactLifetime);
 		}
 
 		// destroy game object

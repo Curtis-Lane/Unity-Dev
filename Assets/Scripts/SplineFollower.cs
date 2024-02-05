@@ -27,6 +27,7 @@ public class SplineFollower : MonoBehaviour {
 			tDistance = Utilities.Wrap(tDistance, 0.0f, 1.0f);
 		}
 	}
+	public float TDistance {get {return tDistance;}}
 
 	void Start () {
 		//speed = maxSpeed;

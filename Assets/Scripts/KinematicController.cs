@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KinematicController : MonoBehaviour, IDamageable {
+public class KinematicController : MonoBehaviour {
 	[SerializeField, Range(1, 40)]
 	float speed = 1.0f;
 
 	[SerializeField]
 	float maxDistance;
-
-	[SerializeField]
-	float health = 100.0f;
 
 	// Update is called once per frame
 	void Update() {
@@ -22,9 +19,5 @@ public class KinematicController : MonoBehaviour, IDamageable {
 		transform.localPosition += force;
 
 		transform.localPosition = Vector3.ClampMagnitude(transform.localPosition, maxDistance);
-	}
-
-	public void ApplyDamage(float damage) {
-		health -= damage;
 	}
 }

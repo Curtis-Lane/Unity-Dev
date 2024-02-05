@@ -6,7 +6,7 @@ using UnityEngine;
 public class VariableBase<T> : ScriptableObject, ISerializationCallbackReceiver {
 	public T initialValue;
 
-	[NonSerialized]
+	[InspectorReadOnly]
 	public T value;
 
 	public void OnAfterDeserialize() {

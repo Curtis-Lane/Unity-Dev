@@ -51,13 +51,18 @@ public abstract class Spawner : MonoBehaviour, IInteractable {
 		return (active && spawnedList.Count < maxSpawned);
 	}
 
-	protected void Spawn(GameObject prefab, Vector3 position, Quaternion rotation) {
+	protected void Spawn(GameObject prefab, Vector3 position, Quaternion rotation, Vector3 scale) {
 		GameObject go = Instantiate(prefab, position, rotation, parentTransform);
+		go.transform.localScale = scale;
 		// track spawned objects
 		if(go.TryGetComponent<TrackedObject>(out TrackedObject trackedObject)) {
 			trackedObject.OnDestroyed += RemoveSpawn;
 			spawnedList.Add(go);
 		}
+	}
+
+	protected void Spawn(GameObject prefab, Vector3 position, Quaternion rotation) {
+		Spawn(prefab, position, rotation, Vector3.one);
 	}
 
 	protected GameObject GetSpawnObject() {

@@ -21,7 +21,7 @@ public class Weapon : Item {
 		}
 	}
 
-	public override ItemData GetData() { return weaponData; }
+	public override ItemData GetData() {return weaponData;}
 
 	public override void Equip() {
 		base.Equip();

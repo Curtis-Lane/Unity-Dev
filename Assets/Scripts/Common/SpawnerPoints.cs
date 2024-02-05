@@ -10,6 +10,6 @@ public class SpawnerPoints : Spawner {
 		GameObject spawnGameObject = GetSpawnObject();
 		Transform spawnTransform = points[Random.Range(0, points.Length)];
 
-		Spawn(spawnGameObject, spawnTransform.position, spawnTransform.rotation);
+		Spawn(spawnGameObject, spawnTransform.position, spawnTransform.rotation, spawnTransform.localScale);
 	}
 }

@@ -18,11 +18,12 @@ public class MultiFireWeapon : Item {
 	private void Start() {
 		autoFireCoroutine = AutoFire();
 		if(ammoTransforms == null || ammoTransforms.Length == 0) {
+			ammoTransforms = new Transform[1];
 			ammoTransforms[0] = transform;
 		}
 	}
 
-	public override ItemData GetData() { return weaponData; }
+	public override ItemData GetData() {return weaponData;}
 
 	public override void Equip() {
 		base.Equip();
