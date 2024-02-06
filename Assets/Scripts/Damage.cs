@@ -21,11 +21,3 @@ public class Damage : MonoBehaviour {
 		}
 	}
 }
-
-public interface IDamageable {
-	void ApplyDamage(float damage);
-}
-
-public interface IHealable {
-	void ApplyHealth(float health);
-}

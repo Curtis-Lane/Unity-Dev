@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Ammo : MonoBehaviour {
+public abstract class Ammo : Interactable {
 	[SerializeField] protected AmmoData ammoData;
 
-	public void OnDamage(GameObject target) {
-		// apply damage if game object has health
-		if(target.TryGetComponent(out IDamageable damageable)) {
-			damageable.ApplyDamage(ammoData.damage * ((ammoData.damageOverTime) ? Time.deltaTime : 1));
+	public override void OnInteractStart(GameObject gameObject) {
+		// apply damage if game object is damagable
+		if(!ammoData.damageOverTime && gameObject.TryGetComponent<IDamageable>(out IDamageable damageable)) {
+			damageable.ApplyDamage(ammoData.damage);
 		}
 
 		// create impact prefab
 		if(ammoData.impactPrefab != null) {
-			var go = Instantiate(ammoData.impactPrefab, transform.position, transform.rotation);
-			Destroy(go, ammoData.impactLifetime);
+			Instantiate(ammoData.impactPrefab, transform.position, transform.rotation);
 		}
 
 		// destroy game object
@@ -22,4 +21,33 @@ public abstract class Ammo : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
+
+	public override void OnInteractActive(GameObject gameObject) {
+		// apply damage if game object is damagable
+		if(ammoData.damageOverTime && gameObject.TryGetComponent<IDamageable>(out IDamageable damageable)) {
+			damageable.ApplyDamage(ammoData.damage * Time.deltaTime);
+		}
+	}
+
+	public override void OnInteractEnd(GameObject gameObject) {
+		//
+	}
+
+	//public void OnDamage(GameObject target) {
+	//	// apply damage if game object has health
+	//	if(target.TryGetComponent(out IDamageable damageable)) {
+	//		damageable.ApplyDamage(ammoData.damage * ((ammoData.damageOverTime) ? Time.deltaTime : 1));
+	//	}
+
+	//	// create impact prefab
+	//	if(ammoData.impactPrefab != null) {
+	//		var go = Instantiate(ammoData.impactPrefab, transform.position, transform.rotation);
+	//		Destroy(go, ammoData.impactLifetime);
+	//	}
+
+	//	// destroy game object
+	//	if(ammoData.destroyOnImpact) {
+	//		Destroy(gameObject);
+	//	}
+	//}
 }

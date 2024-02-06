@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShip : MonoBehaviour, IDamageable, IHealable {
+public class PlayerShip : Interactable, IDamageable, IHealable {
+	[SerializeField]
+	private Action action;
+
 	[SerializeField]
 	private Inventory inventory;
 
@@ -11,6 +14,13 @@ public class PlayerShip : MonoBehaviour, IDamageable, IHealable {
 
 	[SerializeField]
 	private const float MAX_HEALTH = 100.0f;
+
+	private void Start() {
+		if(action != null) {
+			action.onEnter += OnInteractStart;
+			action.onStay += OnInteractActive;
+		}
+	}
 
 	// Update is called once per frame
 	void Update() {
@@ -33,5 +43,17 @@ public class PlayerShip : MonoBehaviour, IDamageable, IHealable {
 
 	public void ApplyHealth(float health) {
 		healthVariable.value = Mathf.Min(healthVariable.value + health, MAX_HEALTH);
+	}
+
+	public override void OnInteractStart(GameObject gameObject) {
+		//
+	}
+
+	public override void OnInteractActive(GameObject gameObject) {
+		//
+	}
+
+	public override void OnInteractEnd(GameObject gameObject) {
+		//
 	}
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8248150308470824040}
   - component: {fileID: 3277005471262077363}
   - component: {fileID: 5506033848364206265}
-  - component: {fileID: -8413666138925025611}
+  - component: {fileID: 4173435551049886780}
   m_Layer: 6
   m_Name: PlayerRocket
   m_TagString: Untagged
@@ -172,7 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoData: {fileID: 11400000, guid: b530329b15f40b840998832905b1fa13, type: 2}
---- !u!114 &-8413666138925025611
+  action: {fileID: 4173435551049886780}
+--- !u!114 &4173435551049886780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,11 +182,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2418939336879953409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d007168dbd74a9b4081d1cb70817e25e, type: 3}
+  m_Script: {fileID: 11500000, guid: 06811a1d0b08fd44da73ef0e74cd9e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projAmmo: {fileID: 5506033848364206265}
-  oneTime: 1
+  tagName: 
 --- !u!1001 &7044714309781838292
 PrefabInstance:
   m_ObjectHideFlags: 0

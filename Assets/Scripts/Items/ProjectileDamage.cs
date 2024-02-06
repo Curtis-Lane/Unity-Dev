@@ -9,7 +9,7 @@ public class ProjectileDamage : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if(other.gameObject.TryGetComponent(out IDamageable damageable)) {
-			projAmmo.OnDamage(((MonoBehaviour) damageable).gameObject);
+			//projAmmo.OnDamage(((MonoBehaviour) damageable).gameObject);
 		}
 	}
 }
