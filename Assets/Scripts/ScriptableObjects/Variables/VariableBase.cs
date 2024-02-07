@@ -16,4 +16,6 @@ public class VariableBase<T> : ScriptableObject, ISerializationCallbackReceiver 
 	public void OnBeforeSerialize() {
 		//
 	}
+
+	public static implicit operator T(VariableBase<T> r) {return r.value;}
 }

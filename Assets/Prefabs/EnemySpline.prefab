@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7612119992087152419}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: FirePoint02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3214838295575235464}
   - component: {fileID: 3800996071548414253}
   - component: {fileID: 3314508084288573595}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: EnemySpline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 500200569386650003}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: FirePoint01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 798324607503248718}
   - component: {fileID: 8424218115176417708}
   - component: {fileID: 8313256830907028788}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,11 +861,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1846824306798204, guid: 42ea65cfa6f57ad4d8f7a5194cc38e90, type: 3}
       propertyPath: m_Name
-      value: SM_Ship_Stealth_03
+      value: EnemyShip
       objectReference: {fileID: 0}
     - target: {fileID: 1846824306798204, guid: 42ea65cfa6f57ad4d8f7a5194cc38e90, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846824306798204, guid: 42ea65cfa6f57ad4d8f7a5194cc38e90, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4302288027458532, guid: 42ea65cfa6f57ad4d8f7a5194cc38e90, type: 3}
       propertyPath: m_LocalScale.x
@@ -942,9 +946,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1846824306798204, guid: 42ea65cfa6f57ad4d8f7a5194cc38e90, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5495975158413586974}
-    - targetCorrespondingSourceObject: {fileID: 1846824306798204, guid: 42ea65cfa6f57ad4d8f7a5194cc38e90, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7079724061412796901}
   m_SourcePrefab: {fileID: 100100000, guid: 42ea65cfa6f57ad4d8f7a5194cc38e90, type: 3}
 --- !u!4 &2523222002539947886 stripped
 Transform:
@@ -989,15 +990,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f1a4b7d2d14b54e8dfa4c053feaa3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 7079724061412796901}
   health: 50
+  points: 15
+  scoreEvent: {fileID: 11400000, guid: b81ff5c125d40fa4fb87e13017464fc9, type: 2}
+  hitPrefab: {fileID: 0}
   destroyedPrefab: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}
-  impactLifespan: 10
-  detectionRadius: 5
-  detectionDistance: 50
-  playerLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
+  weapon: {fileID: 5495975158413586974}
+  minFireRate: 0.5
+  maxFireRate: 2
 --- !u!114 &5495975158413586974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1010,22 +1010,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f80f38b42a64a949a10413bdba5f99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  action: {fileID: 0}
   weaponData: {fileID: 11400000, guid: fe01137c8b8ed9f419e9c2789cf21553, type: 2}
   animator: {fileID: 0}
   ammoTransforms:
   - {fileID: 500200569386650003}
   - {fileID: 7612119992087152419}
---- !u!114 &7079724061412796901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2525831439627981558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c60395281ebcd47842985af20850d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items:
-  - {fileID: 5495975158413586974}

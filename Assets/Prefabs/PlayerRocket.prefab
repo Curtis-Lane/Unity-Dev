@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3277005471262077363}
   - component: {fileID: 5506033848364206265}
   - component: {fileID: 4173435551049886780}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: PlayerRocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06811a1d0b08fd44da73ef0e74cd9e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagName: 
+  tagName: Enemy
 --- !u!1001 &7044714309781838292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1598324380993774, guid: 7eedf4519460a0842af962a850d94e97, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4021296802695634, guid: 7eedf4519460a0842af962a850d94e97, type: 3}
       propertyPath: m_LocalScale.x
@@ -310,7 +310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1550517015285282, guid: e221d3ddf51167c4db44235d8c68ee36, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4637046966039350, guid: e221d3ddf51167c4db44235d8c68ee36, type: 3}
       propertyPath: m_LocalScale.x

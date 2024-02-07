@@ -18,7 +18,7 @@ public abstract class Ammo : Interactable {
 
 		// destroy game object
 		if(ammoData.destroyOnImpact) {
-			Destroy(gameObject);
+			Destroy(this.gameObject);
 		}
 	}
 

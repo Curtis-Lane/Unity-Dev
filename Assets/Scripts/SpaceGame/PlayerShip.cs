@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerShip : Interactable, IDamageable, IHealable {
 	[SerializeField]
-	private Action action;
+	private Inventory inventory;
 
 	[SerializeField]
-	private Inventory inventory;
+	private IntVariable scoreVariable;
 
 	[SerializeField]
 	private FloatVariable healthVariable;
@@ -15,11 +15,14 @@ public class PlayerShip : Interactable, IDamageable, IHealable {
 	[SerializeField]
 	private const float MAX_HEALTH = 100.0f;
 
+	[SerializeField]
+	private GameObject hitPrefab = null;
+
+	[SerializeField]
+	private GameObject destroyedPrefab = null;
+
 	private void Start() {
-		if(action != null) {
-			action.onEnter += OnInteractStart;
-			action.onStay += OnInteractActive;
-		}
+		healthVariable.value = MAX_HEALTH;
 	}
 
 	// Update is called once per frame
@@ -30,19 +33,29 @@ public class PlayerShip : Interactable, IDamageable, IHealable {
 		if(Input.GetButtonUp("Fire1")) {
 			inventory.StopUse();
 		}
-
-		if(healthVariable.value <= 0.0f) {
-			Destroy(gameObject);
-			GetComponentInParent<SplineFollower>().speed = 0;
-		}
 	}
 
 	public void ApplyDamage(float damage) {
 		healthVariable.value -= damage;
+		if(healthVariable <= 0.0f) {
+			if(destroyedPrefab != null) {
+				Instantiate(destroyedPrefab, gameObject.transform.position, Quaternion.identity);
+			}
+			Destroy(gameObject);
+			GetComponentInParent<SplineFollower>().speed = 0;
+		} else {
+			if(hitPrefab != null) {
+				Instantiate(hitPrefab, gameObject.transform.position, Quaternion.identity);
+			}
+		}
 	}
 
 	public void ApplyHealth(float health) {
 		healthVariable.value = Mathf.Min(healthVariable.value + health, MAX_HEALTH);
+	}
+
+	public void AddPoints(int points) {
+		scoreVariable.value += points;
 	}
 
 	public override void OnInteractStart(GameObject gameObject) {

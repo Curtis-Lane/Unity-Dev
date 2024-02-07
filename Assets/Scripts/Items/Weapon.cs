@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //using UnityEngine.Animations.Rigging;
 
-public class Weapon : Item {
+public class Weapon : WeaponBase {
 	[SerializeField] WeaponData weaponData;
 	[SerializeField] Animator animator;
 	//[SerializeField] RigBuilder rigBuilder;

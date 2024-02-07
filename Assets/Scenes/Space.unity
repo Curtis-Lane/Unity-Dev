@@ -2492,6 +2492,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Asteroid_Holes_05
       objectReference: {fileID: 0}
+    - target: {fileID: 1358865280516670, guid: 5e616c2418668fc40a838b6fbec12b54, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358865280516670, guid: 5e616c2418668fc40a838b6fbec12b54, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4253691159984170, guid: 5e616c2418668fc40a838b6fbec12b54, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.9069881
@@ -2906,6 +2914,14 @@ PrefabInstance:
     - target: {fileID: 1769897079488508, guid: 893f294d0a2acc944b297985b573f5ba, type: 3}
       propertyPath: m_Name
       value: SM_Env_Asteroid_Large_Holes_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769897079488508, guid: 893f294d0a2acc944b297985b573f5ba, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769897079488508, guid: 893f294d0a2acc944b297985b573f5ba, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4843246404719078, guid: 893f294d0a2acc944b297985b573f5ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3556,7 +3572,7 @@ GameObject:
   - component: {fileID: 951080630}
   - component: {fileID: 951080629}
   - component: {fileID: 951080628}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3917,13 +3933,16 @@ PrefabInstance:
       addedObject: {fileID: 2122269298}
     - targetCorrespondingSourceObject: {fileID: 1122383940670264, guid: 01489deeeb7ca1744877c2e3e590d958, type: 3}
       insertIndex: 2
-      addedObject: {fileID: 2122269312}
+      addedObject: {fileID: 2122269310}
     - targetCorrespondingSourceObject: {fileID: 1122383940670264, guid: 01489deeeb7ca1744877c2e3e590d958, type: 3}
       insertIndex: 3
       addedObject: {fileID: 2122269311}
     - targetCorrespondingSourceObject: {fileID: 1122383940670264, guid: 01489deeeb7ca1744877c2e3e590d958, type: 3}
       insertIndex: 4
-      addedObject: {fileID: 2122269310}
+      addedObject: {fileID: 2122269312}
+    - targetCorrespondingSourceObject: {fileID: 1122383940670264, guid: 01489deeeb7ca1744877c2e3e590d958, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 2122269316}
     - targetCorrespondingSourceObject: {fileID: 1122383940670264, guid: 01489deeeb7ca1744877c2e3e590d958, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2122269305}
@@ -3942,6 +3961,14 @@ PrefabInstance:
     - target: {fileID: 1887108158195998, guid: f63608ae9c0289f43a6dc73a03c5570a, type: 3}
       propertyPath: m_Name
       value: SM_Env_Asteroid_Holes_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887108158195998, guid: f63608ae9c0289f43a6dc73a03c5570a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887108158195998, guid: f63608ae9c0289f43a6dc73a03c5570a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4746414006047754, guid: f63608ae9c0289f43a6dc73a03c5570a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4353,6 +4380,14 @@ PrefabInstance:
     - target: {fileID: 1120343239868084, guid: ea69caf230089fd45b16b373fef6d83f, type: 3}
       propertyPath: m_Name
       value: SM_Env_Asteroid_Holes_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120343239868084, guid: ea69caf230089fd45b16b373fef6d83f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120343239868084, guid: ea69caf230089fd45b16b373fef6d83f, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4821198073135640, guid: ea69caf230089fd45b16b373fef6d83f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4857,6 +4892,14 @@ PrefabInstance:
     - target: {fileID: 1769897079488508, guid: 893f294d0a2acc944b297985b573f5ba, type: 3}
       propertyPath: m_Name
       value: SM_Env_Asteroid_Large_Holes_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769897079488508, guid: 893f294d0a2acc944b297985b573f5ba, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769897079488508, guid: 893f294d0a2acc944b297985b573f5ba, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4843246404719078, guid: 893f294d0a2acc944b297985b573f5ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5815,7 +5858,7 @@ GameObject:
   - component: {fileID: 1473767357}
   - component: {fileID: 1473767356}
   - component: {fileID: 1473767355}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -5912,6 +5955,14 @@ PrefabInstance:
     - target: {fileID: 1985690399694524, guid: 171e3465d94d3cf43963826ab7829553, type: 3}
       propertyPath: m_Name
       value: SM_Env_Asteroid_Holes_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985690399694524, guid: 171e3465d94d3cf43963826ab7829553, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985690399694524, guid: 171e3465d94d3cf43963826ab7829553, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4247930483994950, guid: 171e3465d94d3cf43963826ab7829553, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6336,6 +6387,14 @@ PrefabInstance:
     - target: {fileID: 1327755057121430, guid: 118121866cc786746a24514fe8a98f7c, type: 3}
       propertyPath: m_Name
       value: SM_Env_Asteroid_Holes_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327755057121430, guid: 118121866cc786746a24514fe8a98f7c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327755057121430, guid: 118121866cc786746a24514fe8a98f7c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4815644880311426, guid: 118121866cc786746a24514fe8a98f7c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7139,6 +7198,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Asteroid_Holes_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1887108158195998, guid: f63608ae9c0289f43a6dc73a03c5570a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887108158195998, guid: f63608ae9c0289f43a6dc73a03c5570a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4746414006047754, guid: f63608ae9c0289f43a6dc73a03c5570a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.0423965
@@ -7243,6 +7310,14 @@ PrefabInstance:
     - target: {fileID: 1952310167915724, guid: 9338b35696373474eaddee04d4c63e4c, type: 3}
       propertyPath: m_Name
       value: SM_Env_Asteroid_Rock_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952310167915724, guid: 9338b35696373474eaddee04d4c63e4c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952310167915724, guid: 9338b35696373474eaddee04d4c63e4c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4786644710609096, guid: 9338b35696373474eaddee04d4c63e4c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7349,6 +7424,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Asteroid_Holes_04
       objectReference: {fileID: 0}
+    - target: {fileID: 1327755057121430, guid: 118121866cc786746a24514fe8a98f7c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327755057121430, guid: 118121866cc786746a24514fe8a98f7c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4815644880311426, guid: 118121866cc786746a24514fe8a98f7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.52
@@ -7403,7 +7486,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1327755057121430, guid: 118121866cc786746a24514fe8a98f7c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2109083696}
+      addedObject: {fileID: 2109083699}
     - targetCorrespondingSourceObject: {fileID: 1327755057121430, guid: 118121866cc786746a24514fe8a98f7c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2109083698}
@@ -7432,21 +7515,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagName: Player
---- !u!114 &2109083696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724369572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 694a6841657b0414680e75d694b09042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 60
-  hitPrefab: {fileID: 0}
-  destroyPrefab: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}
 --- !u!114 &2109083697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7475,6 +7543,23 @@ MonoBehaviour:
   action: {fileID: 2109083695}
   damage: 10
   damageOverTime: 0
+--- !u!114 &2109083699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724369572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9affd836bf86b344f8987d08c4266369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 60
+  points: 5
+  scoreEvent: {fileID: 11400000, guid: b81ff5c125d40fa4fb87e13017464fc9, type: 2}
+  hitPrefab: {fileID: 0}
+  destroyedPrefab: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}
 --- !u!1 &2122269293 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1122383940670264, guid: 01489deeeb7ca1744877c2e3e590d958, type: 3}
@@ -7559,9 +7644,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a198c35a5c91e9e45abb40d7709652b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: {fileID: 0}
   inventory: {fileID: 2122269311}
+  scoreVariable: {fileID: 11400000, guid: b191592a05749ba4e879725efdcbdd03, type: 2}
   healthVariable: {fileID: 11400000, guid: 0071dd66fefac374da6bd74a6535d29c, type: 2}
+  hitPrefab: {fileID: 0}
+  destroyedPrefab: {fileID: 0}
 --- !u!114 &2122269311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7594,6 +7681,34 @@ MonoBehaviour:
   ammoTransforms:
   - {fileID: 231651204}
   - {fileID: 1846374922}
+--- !u!114 &2122269316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122269293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9a137c28f9acb4c875ad91c153f50b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: b81ff5c125d40fa4fb87e13017464fc9, type: 2}
+  listener:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2122269310}
+        m_TargetAssemblyTypeName: PlayerShip, Assembly-CSharp
+        m_MethodName: AddPoints
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2125088279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4604023365360802, guid: 41eac07628561874e8fd3c1649c10b47, type: 3}
