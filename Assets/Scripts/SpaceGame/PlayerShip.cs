@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerShip : Interactable, IDamageable, IHealable {
 	[SerializeField]
+	private SplineFollower splineFollower;
+
+	[SerializeField]
 	private Inventory inventory;
 
 	[SerializeField]
@@ -30,9 +33,11 @@ public class PlayerShip : Interactable, IDamageable, IHealable {
 		if(Input.GetButtonDown("Fire1")) {
 			inventory.Use();
 		}
-		if(Input.GetButtonUp("Fire1")) {
-			inventory.StopUse();
-		}
+		//if(Input.GetButtonUp("Fire1")) {
+		//	inventory.StopUse();
+		//}
+
+		//splineFollower.speed = (Input.GetKey(KeyCode.Space)) ? 20 : 10;
 	}
 
 	public void ApplyDamage(float damage) {
@@ -51,11 +56,15 @@ public class PlayerShip : Interactable, IDamageable, IHealable {
 	}
 
 	public void ApplyHealth(float health) {
-		healthVariable.value = Mathf.Min(healthVariable.value + health, MAX_HEALTH);
+		healthVariable.value = Mathf.Min(healthVariable + health, MAX_HEALTH);
 	}
 
 	public void AddPoints(int points) {
 		scoreVariable.value += points;
+	}
+
+	public void AddSpeed(float speedIncrease) {
+		splineFollower.speed += speedIncrease;
 	}
 
 	public override void OnInteractStart(GameObject gameObject) {

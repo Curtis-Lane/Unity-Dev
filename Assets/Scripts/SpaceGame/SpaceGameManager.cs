@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class SpaceGameManager : Singleton<SpaceGameManager> {
@@ -26,10 +27,10 @@ public class SpaceGameManager : Singleton<SpaceGameManager> {
 		if(Input.GetButton("Cancel")) {
 			if(!Application.isEditor) {
 				Application.Quit();
-				return;
 			} else {
-				print("Quit!");
+				EditorApplication.ExitPlaymode();
 			}
+			return;
 		}
 	}
 }

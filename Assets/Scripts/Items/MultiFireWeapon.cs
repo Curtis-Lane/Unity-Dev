@@ -28,7 +28,7 @@ public class MultiFireWeapon : WeaponBase {
 	public override void Equip() {
 		base.Equip();
 		weaponReady = true;
-		if(weaponData.animEquipName != "")
+		if(weaponData.animEquipName != "")	
 			animator.SetBool(weaponData.animEquipName, true);
 		for(int i = 0; i < weaponData.rigLayerWeight.Length; i++) {
 			//rigBuilder.layers[i].rig.weight = weaponData.rigLayerWeight[i];
