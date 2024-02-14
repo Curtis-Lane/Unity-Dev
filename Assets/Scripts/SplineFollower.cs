@@ -8,8 +8,23 @@ public class SplineFollower : MonoBehaviour {
 	[SerializeField]
 	SplineContainer splineContainer;
 
+	[SerializeField]
+	VoidEvent endOfTrackEvent;
+
+	[SerializeField]
+	[Range(0.1f, 0.99999f)]
+	private float endOfTrackThreshold = 0.9f;
+
+	[SerializeField]
+	[InspectorReadOnly]
+	private bool endOfTrackEventFired = false;
+
 	[Range(0, 40)]
-	public float speed = 1.0f;
+	public float initialSpeed = 10.0f;
+
+	[SerializeField]
+	[InspectorReadOnly]
+	private float speed = 0.0f;
 
 	[SerializeField]
 	[Range(0.0f, 1.0f)]
@@ -37,6 +52,11 @@ public class SplineFollower : MonoBehaviour {
 	void Update() {
 		distance += speed * Time.deltaTime;
 		UpdateTransform(math.frac(tDistance));
+
+		if(tDistance >= endOfTrackThreshold && !endOfTrackEventFired) {
+			endOfTrackEvent?.RaiseEvent();
+			endOfTrackEventFired = true;
+		}
 	}
 
 	void UpdateTransform(float t) {
@@ -47,5 +67,18 @@ public class SplineFollower : MonoBehaviour {
 
 		transform.position = position;
 		transform.rotation = Quaternion.LookRotation(forward, up);
+	}
+
+	public void IncreaseSpeed(float increase) {
+		initialSpeed += increase;
+		speed = initialSpeed;
+	}
+
+	public void StartMoving() {
+		speed = initialSpeed;
+	}
+
+	public void StopMoving() {
+		speed = 0.0f;
 	}
 }

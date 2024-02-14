@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3505102499974819308}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -127,7 +127,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8144157, y: 1.4261901, z: 2.0614648}
+  m_Size: {x: 3.628832, y: 2.85238, z: 4.12293}
   m_Center: {x: 0.000000029802322, y: 0.5154691, z: -0.00000011920929}
 --- !u!114 &3647974308027002176
 MonoBehaviour:
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupPrefab: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
-  pickupAudio: {fileID: 8300000, guid: 5039414d94a6e4e70a5ab9e8833e992a, type: 3}
-  volume: 100
+  pickupAudio: {fileID: 8300000, guid: cac48417e9e704a48b46e1cabb4a734f, type: 3}
+  volume: 125
   pickupFXLifeTime: 10
   speedValue: 2.5

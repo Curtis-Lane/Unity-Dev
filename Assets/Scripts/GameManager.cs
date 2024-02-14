@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -109,10 +110,11 @@ public class GameManager : Singleton<GameManager> {
 		if(Input.GetButton("Cancel")) {
 			if(!Application.isEditor) {
 				Application.Quit();
-				return;
 			} else {
 				print("Quit!");
+				EditorApplication.ExitPlaymode();
 			}
+			return;
 		}
 
 		switch(state) {
